@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 # before_action :require_login, only: [:create, :destroy]
 # before_action :correct_review, only: [:destroy]
+
 before_action :find_product
 before_action :find_review, only: [:edit, :update, :destroy]
 
@@ -8,7 +9,10 @@ def index
 end
 
 def new
-  @review = Review.new
+  # one review per product by a single user
+  # we cant have two reviews per product for a single user
+
+
 end
 
 def create
@@ -62,6 +66,7 @@ end
 def find_review
   @review = Review.find(params[:id])
 end
+
 
 # def correct_review
 #     @review = Review.find(params[:id])

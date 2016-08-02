@@ -8,18 +8,26 @@
 
 User.create!([
   {name: "anu1",
-   email: "anu3@gmail.com",
+   email: "anu1@gmail.com",
    address: "132 Tooty Road",
    phone:12345678,
    password: "12345678",
    password_confirmation: "12345678",
-  },
+  admin: true},
   {name: "anu4",
    email: "anu4@gmail.com",
    address: "132 GA Road",
    phone:12345678,
    password: "12345678",
-   password_confirmation: "12345678"},
+   password_confirmation: "12345678",
+ admin: true},
+ {name: "anu2",
+  email: "anu2@gmail.com",
+  address: "132 GA Road",
+  phone:12345678,
+  password: "12345678",
+  password_confirmation: "12345678",
+admin: false}
 ])
 
 Product.create!([
