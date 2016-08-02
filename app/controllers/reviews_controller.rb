@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
-# before_action :require_login, only: [:create, :destroy]
-# before_action :correct_review, only: [:destroy]
+
 
 before_action :find_product
 before_action :find_review, only: [:edit, :update, :destroy]
@@ -9,10 +8,6 @@ def index
 end
 
 def new
-  # one review per product by a single user
-  # we cant have two reviews per product for a single user
-
-
 end
 
 def create
@@ -54,33 +49,12 @@ def find_product
 @product = Product.find(params[:product_id])
 end
 
-# def set_review
-#   @review = review.find(params[:id])
-# end
-
 def review_params
   params.require(:review).permit(:content)
-  # params.require(:review).permit(:content).merge(user_id: current_user.id)
 end
 
 def find_review
   @review = Review.find(params[:id])
 end
-
-
-# def correct_review
-#     @review = Review.find(params[:id])
-#     unless (current_user[:id] == @review.user_id)
-#     flash[:danger] = "This is not your login. Do you want to login again?"
-#     redirect_to current_user
-#   end
-# end
-
-# def require_logout
-#   if logged_in?
-#   flash[:warning] = "You must be logged out to create a new review"
-#   redirect_to(root_url)
-# end
-# end
 
 end

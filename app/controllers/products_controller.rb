@@ -5,6 +5,12 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    # code for searching for a product
+    if params[:search]
+          @products = Product.search(params[:search]).order('created_at DESC')
+    else
+          @products =Product.all.order('created_at DESC')
+    end
   end
 
   # GET /products/1
@@ -27,32 +33,22 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     # respond_to do |format|
-      if @product.save
-        redirect_to products_path
-        # format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        # format.json { render :show, status: :created, location: @product }
-      else
-        render 'new'
-        # format.html { render :new }
-        # format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.save
+      redirect_to products_path
+    else
+      render 'new'
+    end
     # end
   end
 
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-
-    # respond_to do |format|
-      if @product.update(product_params)
-        redirect_to product_path(@product)
-        # format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @product }
-      else
-        render 'edit'
-        # format.html { render :edit }
-        # format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.update(product_params)
+      redirect_to product_path(@product)
+    else
+      render 'edit'
+    end
     # end
   end
 
@@ -61,26 +57,22 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     redirect_to products_path
-    # respond_to do |format|
-    #   format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def find_product
-      @product = Product.find(params[:id])
+
+  # Use callbacks to share common setup or constraints between actions.
+  def find_product
+    @product = Product.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_params
+    params.require(:product).permit(:name, :price)
+  end
+
+  def check_admin
+    if current_user.admin?
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:name, :price)
-    end
-
- def check_admin
-if user.admin?
-end
- end
-
+  end
 end
