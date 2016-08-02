@@ -1,0 +1,24 @@
+<% provide(:title, @product.name) %>
+<h1>Editing Product</h1>
+
+<%= form_for(@product) do |f| %>
+  
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Edit Product", class: "btn btn-primary" %>
+  </div>
+<% end %>
+<%#= render 'form', product: @product %>
+
+<%= link_to 'Show', @product %> |
+<%= link_to 'Back', products_path %>
