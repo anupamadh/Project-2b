@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # dynamic routes
   get '/signup', to: 'users#new'
-
+  
   # login routes
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
