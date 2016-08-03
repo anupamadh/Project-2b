@@ -31,4 +31,6 @@
   </tbody>
 </table>
 
+  <% if current_user.admin? %>
   <h4><%= link_to 'Add Product', new_product_path %></h4>
+<% end %>
