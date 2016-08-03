@@ -18,9 +18,10 @@
       </td>
       <td class="active">
         <% if logged_in? %>
-        <%= link_to "Add Review", new_product_review_path(@product) %> |
+        <%= link_to "Add Review", new_product_review_path(@product) %>   <% if current_user.admin? %>|
         <%= link_to 'Edit', edit_product_path(@product) %> |
         <%= link_to 'Delete', product_path(@product), method: :delete, data: { confirm: "Are you sure?"} %>
+<% end %>
 <% end %>
       </td>
     </tr>

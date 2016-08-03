@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: [:show, :edit, :update]
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
   before_action :check_admin, only: [:edit, :update, :destroy]
   # GET /products
   # GET /products.json
   def index
-  @products =Product.all
+  
     # code for searching for a product
     if params[:search]
           @products = Product.search(params[:search]).order('created_at DESC')
