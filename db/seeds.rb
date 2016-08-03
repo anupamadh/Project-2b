@@ -8,7 +8,7 @@
 
 User.create!([
   {name: "anu1",
-   email: "anu1@gmail.com",
+   email: "anu5@gmail.com",
    address: "132 Tooty Road",
    phone:12345678,
    password: "12345678",
