@@ -20,7 +20,7 @@
     <% @products.each do |product| %>
       <tr class="active">
         <td class="active"><%= link_to product.name, product_path(product) %></td>
-        <td class="active"><%= product.price %></td>
+        <td class="active">$<%= product.price %></td>
         <td class="active"><%= link_to 'Show', product %></td>
         <% if current_user.admin? %>
         <td class="active"><%= link_to 'Edit', edit_product_path(product) %></td>
