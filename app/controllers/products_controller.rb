@@ -8,6 +8,9 @@ class ProductsController < ApplicationController
     # code for searching for a product
     if params[:search]
           @products = Product.search(params[:search]).order('created_at DESC')
+          if @products.length == 0
+            flash[:warning] = "There are no products containing the term(s)"
+          end
     else
           @products =Product.all.order('created_at DESC')
     end
