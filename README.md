@@ -1,24 +1,18 @@
 # README
+This Redmart App allows users to do the following:
+1. Signup to the website.
+2. View products
+3. Add reviews to the products.
+4. Edit and Delete his own reviews.
+5. Search products
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In addition, Admin users can do the following:
+1. Add users to the site.
+2. Delete users
+3. Add Products.
+4. Edit products.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Known Issues:
+The search function in Heroku is case sensitive.
+Heroku link:
+https://anu-project2b.herokuapp.com/
