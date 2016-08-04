@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
 
-
 before_action :find_product
 before_action :find_review, only: [:edit, :update, :destroy]
 
@@ -56,5 +55,6 @@ end
 def find_review
   @review = Review.find(params[:id])
 end
+
 
 end
