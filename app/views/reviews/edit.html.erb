@@ -1,6 +1,7 @@
 <h1>Edit Review</h1>
 
 <%= form_for([@product, @review]) do |f| %>
+<%=f.error_messages %>
 <%= f.text_area :content %>
   <%= f.submit "Edit Review", class: "btn btn-primary" %>
   <% end %>
