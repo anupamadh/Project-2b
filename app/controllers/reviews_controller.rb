@@ -19,6 +19,7 @@ def create
      flash[:success] = "Review created!"
      redirect_to product_path(@product)
    else
+     flash[:warning] = "Please enter your review"
      render 'new'
    end
 end
