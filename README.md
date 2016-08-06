@@ -12,7 +12,6 @@ In addition, Admin users can do the following:
 3. Add Products.
 4. Edit products.
 
-Known Issues:
-The search function in Heroku is case sensitive.
+
 Heroku link:
 https://anu-project2b.herokuapp.com/
